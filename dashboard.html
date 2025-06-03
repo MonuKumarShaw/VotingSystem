@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+ <nav class="navbar">
+  <div id="welcome">Welcome!</div>
+  <div class="menu" id="menuBtn">☰</div>
+  <div class="dropdown" id="dropdownMenu">
+    <a href="#"><span class="icon">👤&nbsp;</span>Profile</a>
+    <a href="#"><span class="icon">⚙&nbsp;</span>Settings</a>
+    <a href="#" onclick="logout()"><span class="icon">🚪&nbsp;</span>Logout</a>
+    
+
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const voter = localStorage.getItem("VoterNumber");
+     
+    const name = localStorage.getItem("userName");
+    console.log("Dashboard userName from localStorage:", name);
+    console.log(voter);
+    if (name && name !== "User") {
+      document.getElementById("welcome").textContent =` Welcome, ${name}!`;
+    } else {
+      window.location.href = "index.html";
+    }
+  });
+</script>
+
+<main>
+  <div class="ticker">
+    <span>Election 2025 - Secure Your Vote &nbsp;  &nbsp;</span>
+    <span>Election 2025 - Secure Your Vote &nbsp;  &nbsp;</span>
+  </div>
+
+  <section class="voting-section">
+    <h2>Vote for Your Country</h2>
+    <div class="parties">
+      <button onclick="submitVote('BJP')">
+        <img src="https://1000logos.net/wp-content/uploads/2022/02/BJP-logo.png" alt="BJP Logo" class="party-logo" />
+        BJP
+      </button>
+      <button onclick="submitVote('Congress')">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS09AnCdNEj6YETpz_1QntRC3iDqn1wKVBGBg&s" alt="Congress Logo" class="party-logo" />
+        Congress
+      </button>
+      <button onclick="submitVote('AAP')">
+        <img src="https://m.media-amazon.com/images/I/71Ng4IC65-L.jpg" alt="AAP Logo" class="party-logo" />
+        AAP
+      </button>
+      <button onclick="submitVote('OTHERS')">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ92PDUHiEiCoYZ63-i-63n99beZo0pvkuuHg&s" alt="OTHERS" class="party-logo" />
+        OTHERS
+      </button>
+    </div>
+
+    <p class="timer">Time left to vote: <span id="timer">30:00</span></p>
+    <p class="status" id="voteStatus">You haven't voted yet.</p>
+  </section>
+  
+  <section class="voting-benefits">
+    <h3>Why Your Vote Matters</h3>
+    <p>
+      Voting is your voice in shaping the future of our nation. By casting your vote, you contribute to
+      democracy, help choose effective leaders, and ensure your community’s needs are heard. Every vote counts!
+    </p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Online Voting System | <a href="#">Contact</a> | <a href="#">Help</a></p>
+</footer>
+
+<div id="voteModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <p id="confirmText"></p>
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

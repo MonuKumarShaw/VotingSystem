@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voting System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Registration Section -->
+    <section id="registerSection">
+      <h2>Register</h2>
+      <form id="registerForm">
+        <input id="name" placeholder="Name" required />
+        <input id="dob" type="date" placeholder="DOB" required />
+        <input id="voterNumber" placeholder="Voter Number" required />
+        <input id="phone" placeholder="Phone" required />
+        <input id="email" type="email" placeholder="Email" required />
+        <input id="address" placeholder="Address" required />
+        <button type="submit">Register</button>
+      </form>
+      <p id="registerMsg"></p>
+      <button id="showLoginBtn" class="link-button">Already have an account? Login</button>
+    </section>
+
+    <!-- Login Section -->
+    <section id="loginSection" style="display: none;">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input id="loginVoterId" placeholder="Voter Number" required />
+        <input id="loginDob" type="date" placeholder="DOB" required />
+        <button type="submit">Login</button>
+      </form>
+      <p id="loginMsg"></p>
+      <div id="otpSection" style="display: none">
+  <input id="otp" placeholder="Enter 4-digit OTP"><br>
+  <button id="verifyOtpBtn">Verify OTP</button>
+  <p id="otpMsg" style="color: rgb(31, 29, 29); margin-top: 10px;"></p> <!-- Add this line -->
+</div>
+
+      <button id="showRegisterBtn" class="link-button">Don't have an account? Register</button>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
